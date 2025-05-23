@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PearlAssist | Service Premium d'Accueil Aéroportuaire à Abidjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --dark-blue: #0A2463;
+            --vivid-blue: #3E92CC;
+            --copper: #D8315B;
+            --light-grey: #F8F9FA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--dark-blue);
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--copper);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after, .nav-links a.active:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 36, 99, 0.9), rgba(10, 36, 99, 0.9)), 
+                        url('https://images.unsplash.com/photo-1556388158-158ea5ccacbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Boutons */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--copper);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #c02a4f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--copper);
+        }
+
+        /* Features */
+        .features {
+            background-color: var(--light-grey);
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--copper);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-blue);
+        }
+
+        /* Services */
+        .services-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--light-grey);
+            border-radius: 10px;
+            padding: 2.5rem;
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--vivid-blue);
+        }
+
+        .service-card.featured {
+            border-top-color: var(--copper);
+        }
+
+        .service-card.featured:before {
+            content: "POPULAIRE";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--copper);
+            color: var(--white);
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--vivid-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card.featured .service-icon {
+            color: var(--copper);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-card ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .service-card ul li:before {
+            content: "✓";
+            color: var(--vivid-blue);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin: 1.5rem 0;
+        }
+
+        .service-button {
+            display: block;
+            text-align: center;
+            background-color: var(--vivid-blue);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .service-button:hover {
+            background-color: #3688b8;
+        }
+
+        .service-card.featured .service-button {
+            background-color: var(--copper);
+        }
+
+        .service-card.featured .service-button:hover {
+            background-color: #c02a4f;
+        }
+
+        /* Paiement sécurisé */
+        .payment-section {
+            background-color: var(--light-grey);
+        }
+
+        .payment-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-form {
+            flex: 2;
+            min-width: 300px;
+            padding: 3rem;
+        }
+
+        .payment-summary {
+            flex: 1;
+            min-width: 300px;
+            padding: 3rem;
+            background-color: var(--dark-blue);
+            color: var(--white);
+        }
+
+        .payment-summary h3 {
+            color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            flex: 1;
+            min-width: 120px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover, .payment-method.active {
+            border-color: var(--vivid-blue);
+            background-color: rgba(62, 146, 204, 0.1);
+        }
+
+        .payment-method i {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--dark-blue);
+        }
+
+        .payment-method span {
+            font-weight: 500;
+        }
+
+        .payment-details {
+            margin: 1.5rem 0;
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .security-badges img {
+            height: 40px;
+        }
+
+        .secure-info {
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        .secure-info i {
+            color: var(--copper);
+            margin-right: 5px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .why-secure {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .why-secure h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .why-secure ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .why-secure li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .why-secure li:before {
+            content: "✓";
+            color: var(--copper);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .pay-button {
+            display: block;
+            width: 100%;
+            background-color: var(--copper);
+            color: var(--white);
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .pay-button:hover {
+            background-color: #c02a4f;
+        }
+
+        /* Témoignages */
+        .testimonials-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial {
+            background-color: var(--light-grey);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 400px;
+            transition: all 0.3s;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--vivid-blue);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .testimonial .client-name {
+            font-weight: 600;
+            color: var(--dark-blue);
+            text-align: center;
+        }
+
+        /* Contact */
+        .contact {
+            background-color: var(--dark-blue);
+            color: var(--white);
+        }
+
+        .contact h2 {
+            color: var(--white);
+        }
+
+        .contact h2:after {
+            background-color: var(--copper);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--copper);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--copper);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form .form-group label {
+            color: var(--dark-blue);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: var(--copper);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #c02a4f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #071a3d;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-blue);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .feature-card, .service-card {
+                min-width: 100%;
+            }
+
+            .payment-container, .contact-container {
+                flex-direction: column;
+            }
+
+            .payment-summary {
+                order: -1;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+
+    /* Supprime toutes les barres cuivrées */
+    .section-title h2:after,
+    .nav-links a:after,
+    h2:after,
+    h3:after {
+        display: none !important;
+    }
+
+    /* Garde uniquement la barre sous la navigation */
+    .nav-links a.active:after,
+    .nav-links a:hover:after {
+        display: block !important;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--copper);
+    }
+    
+</style>
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x50?text=PearlAssist&color=0A2463" alt="PearlAssist Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#paiement">Paiement</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <h1>Service Premium d'Accueil Aéroportuaire à Abidjan</h1>
+            <p>Voyagez en toute sérénité avec notre service Meet & Assist personnalisé. Évitez les files d'attente et les formalités stressantes dès votre arrivée.</p>
+            <div class="cta-buttons">
+                <a href="#paiement" class="cta-button">Réserver maintenant</a>
+                <a href="#services" class="cta-button secondary-button">Découvrir nos services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-title">
+            <h2>Pourquoi choisir PearlAssist ?</h2>
+            <p>Notre service premium fait la différence</p>
+        </div>
+        <div class="features-container">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Gain de temps</h3>
+                <p>Évitez les files d'attente interminables et les formalités administratives complexes.</p>
+            </div>
+            <div class="feature-card fade-in delay-1">
+                <div class="feature-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Assistance VIP</h3>
+                <p>Un agent dédié vous accompagne pas à pas dès la sortie de l'avion.</p>
+            </div>
+            <div class="feature-card fade-in delay-2">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Sécurité totale</h3>
+                <p>Paiements 100% sécurisés et données personnelles protégées.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Nos Services Premium</h2>
+            <p>Choisissez l'option qui correspond à vos besoins</p>
+        </div>
+        <div class="services-container">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>Meet & Assist Standard</h3>
+                <ul>
+                    <li>Accueil personnalisé à la descente d'avion</li>
+                    <li>Assistance aux formalités d'immigration</li>
+                    <li>Récupération des bagages</li>
+                    <li>Accompagnement jusqu'au véhicule</li>
+                    <li>Service disponible 24h/24</li>
+                </ul>
+                <div class="price">50.000 FCFA</div>
+                <a href="#paiement" class="service-button">Choisir ce service</a>
+            </div>
+
+            <div class="service-card featured fade-in delay-1">
+                <div class="service-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3>Meet & Assist VIP</h3>
+                <ul>
+                    <li>Service Standard inclus</li>
+                    <li>Accès salon VIP exclusif</li>
+                    <li>Assistance prioritaire accélérée</li>
+                    <li>Transfert en véhicule haut de gamme</li>
+                    <li>Service concierge personnalisé</li>
+                    <li>Assistance francophone/anglophone</li>
+                </ul>
+                <div class="price">120.000 FCFA</div>
+                <a href="#paiement" class="service-button">Choisir ce service</a>
+            </div>
+
+            <div class="service-card fade-in delay-2">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Service Groupe/Entreprise</h3>
+                <ul>
+                    <li>Accueil pour groupes (à partir de 5 personnes)</li>
+                    <li>Coordination des formalités pour tout le groupe</li>
+                    <li>Assistance personnalisée pour chaque membre</li>
+                    <li>Transfert groupé organisé</li>
+                    <li>Service disponible 24h/24</li>
+                    <li>Facturation unique simplifiée</li>
+                </ul>
+                <div class="price">Sur devis</div>
+                <a href="#contact" class="service-button">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>Ils nous ont fait confiance</h2>
+            <p>Découvrez ce que disent nos clients satisfaits</p>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial fade-in">
+                <p>"Service exceptionnel ! Mon agent m'a aidé à traverser toutes les formalités en moins de 20 minutes alors que l'aéroport était bondé. Un vrai gain de temps et de sérénité."</p>
+                <div class="client-name">Jean K., Directeur Commercial</div>
+            </div>
+            <div class="testimonial fade-in delay-1">
+                <p>"Voyager seule me stressait toujours, mais avec PearlAssist, je me sens en sécurité et accompagnée dès mon arrivée. Mon agent était d'une gentillesse et d'une professionnalisme remarquables."</p>
+                <div class="client-name">Aïcha T., Entrepreneure</div>
+            </div>
+            <div class="testimonial fade-in delay-2">
+                <p>"Le service VIP vaut vraiment son prix. Le salon privé m'a permis de me détendre après un long vol avant ma réunion importante. L'agent a même aidé avec mes documents professionnels."</p>
+                <div class="client-name">Marc D., Investisseur</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paiement Sécurisé Section -->
+    <section class="payment-section" id="paiement">
+        <div class="section-title">
+            <h2>Paiement 100% Sécurisé</h2>
+            <p>Finalisez votre réservation en toute confiance</p>
+        </div>
+        <div class="payment-container">
+            <div class="payment-form fade-in">
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="service">Service choisi</label>
+                        <select id="service" name="service">
+                            <option value="standard">Meet & Assist Standard - 50.000 FCFA</option>
+                            <option value="vip">Meet & Assist VIP - 120.000 FCFA</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date d'arrivée</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="flight">Numéro de vol</label>
+                        <input type="text" id="flight" name="flight" placeholder="Ex: AF 778" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+225 XX XX XX XX" required>
+                    </div>
+
+                    <h3>Méthode de paiement</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method active" data-method="card">
+                            <i class="far fa-credit-card"></i>
+                            <span>Carte bancaire</span>
+                        </div>
+                        <div class="payment-method" data-method="orange">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Orange Money</span>
+                        </div>
+                        <div class="payment-method" data-method="mtn">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>MTN Mobile Money</span>
+                        </div>
+                        <div class="payment-method" data-method="wave">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Wave</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-details" id="card-details">
+                        <div class="form-group">
+                            <label for="card-number">Numéro de carte</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456">
+                            <div style="margin-top: 5px; text-align: center;">
+                                <i class="fab fa-cc-visa" style="color: var(--dark-blue); font-size: 1.5rem; margin-right: 10px;"></i>
+                                <i class="fab fa-cc-mastercard" style="color: var(--dark-blue); font-size: 1.5rem;"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Date d'expiration</label>
+                                <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvv">CVV</label>
+                                <input type="text" id="card-cvv" name="card-cvv" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-details" id="mobile-money-details" style="display: none;">
+                        <div class="form-group">
+                            <label for="mobile-number">Numéro de téléphone</label>
+                            <input type="tel" id="mobile-number" name="mobile-number" placeholder="+225 XX XX XX XX">
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; text-align: center;">Vous recevrez une demande de paiement sur votre mobile</p>
+                    </div>
+
+                    <div class="security-badges">
+                        <img src="https://via.placeholder.com/80x40/0A2463/FFFFFF?text=SSL" alt="SSL Sécurisé">
+                        <img src="https://via.placeholder.com/80x40/0A2463/FFFFFF?text=PCI" alt="PCI DSS Compliant">
+                        <img src="https://via.placeholder.com/80x40/0A2463/FFFFFF?text=3D" alt="3D Secure">
+                    </div>
+
+                    <button type="submit" class="pay-button">
+                        <i class="fas fa-lock"></i> Payer maintenant
+                    </button>
+
+                    <p class="secure-info">
+                        <i class="fas fa-shield-alt"></i> Vos données sont protégées par un cryptage SSL 256-bit. Nous ne stockons jamais vos informations de paiement.
+                    </p>
+                </form>
+            </div>
+
+            <div class="payment-summary fade-in delay-1">
+                <h3>Récapitulatif</h3>
+                <div class="summary-item">
+                    <span>Service</span>
+                    <span id="service-summary">Meet & Assist Standard</span>
+                </div>
+                <div class="summary-item">
+                    <span>Date</span>
+                    <span id="date-summary">--/--/----</span>
+                </div>
+                <div class="summary-item">
+                    <span>Vol</span>
+                    <span id="flight-summary">-----</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="total-summary">50.000 FCFA</span>
+                </div>
+
+                <div class="why-secure">
+                    <h4>Pourquoi nous faire confiance ?</h4>
+                    <ul>
+                        <li>Paiements cryptés de bout en bout</li>
+                        <li>Aucune donnée bancaire stockée</li>
+                        <li>Certifié PCI DSS niveau 1</li>
+                        <li>Support client 24/7</li>
+                        <li>Garantie de remboursement sous 24h</li>
+                        <li>Partenaire officiel de l'aéroport d'Abidjan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contactez-nous</h2>
+            <p style="color: rgba(255, 255, 255, 0.8);">Nous sommes à votre disposition pour toute question</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Nos coordonnées</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Aéroport Félix Houphouët-Boigny, Terminal 1, Zone Arrivées, Abidjan, Côte d'Ivoire</span>
+                </p>
+                <p>
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+225 XX XX XX XX</span>
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <span>contact@pearlassist.com</span>
+                </p>
+                <p>
+                    <i class="fas fa-clock"></i>
+                    <span>Disponible 24h/24, 7j/7</span>
+                </p>
+
+                <h3 style="margin-top: 2rem;">Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PearlAssist. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
